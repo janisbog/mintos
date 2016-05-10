@@ -5,21 +5,12 @@
 {% block body %}
     <table border="0" cellspacing="2">
         {% for loan in loans %}
-            <tr>
-                <td>Loan ID:</td>
-                <td>{{ loan.id }}</td>
-            </tr>
-            <tr>
-                <td>Amount:</td>
-                <td>{{ loan.amount }}</td>
-            </tr>
-            <tr>
-                <td>Available for investments:</td>
-                <td>{{ loan.availableForInvestments }}</td>
-            </tr>
+            {{ include('AppBundle:View:loan.html.twig', { 'loan': loan }) }}
             {% if loan.amount > loan.availableForInvestments %}
                 <tr>
-                    <td colspan="2" height="10" align="right">Invest</td>
+                    <td colspan="2" height="10" align="right">
+                        <a style="float: right;" href="{{ path('invest', {'loanID': loan.id}) }}">Invest</a>
+                    </td>
                 </tr>
             {% endif %}
             <tr>
