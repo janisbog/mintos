@@ -40,6 +40,14 @@ class SecurityController extends Controller
             // ...
         ));
     }
+    
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction()
+    {
+        return null;
+    }
 
 }
 //Available types: array, simple_array, json_array, object, 

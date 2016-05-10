@@ -18,9 +18,16 @@ security:
 
         main:
             anonymous: ~
+            provider: mysqldb
             form_login:
                 login_path: login
                 check_path: login
+            logout:
+                path:   /logout
+                target: /
+    access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/, roles: ROLE_USER }
             # activate different ways to authenticate
 
             # http_basic: ~
