@@ -1,0 +1,32 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}View loans{% endblock %}
+
+{% block body %}
+    <table border="0" cellspacing="2">
+        {% for loan in loans %}
+            <tr>
+                <td>Loan ID:</td>
+                <td>{{ loan.id }}</td>
+            </tr>
+            <tr>
+                <td>Amount:</td>
+                <td>{{ loan.amount }}</td>
+            </tr>
+            <tr>
+                <td>Available for investments:</td>
+                <td>{{ loan.availableForInvestments }}</td>
+            </tr>
+            {% if loan.amount > loan.availableForInvestments %}
+                <tr>
+                    <td colspan="2" height="10" align="right">Invest</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td colspan="2" height="10"></td>
+            </tr>
+        {% else %}
+            <p>There are no loans available</p>
+        {% endfor %}
+    </table>
+{% endblock %}

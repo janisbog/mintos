@@ -42,7 +42,7 @@ class User implements UserInterface, \Serializable
     /**
      * @var array
      *
-     * @ORM\Column(name="investments", type="simple_array")
+     * @ORM\Column(name="investments", type="array")
      */
     private $investments;
     
@@ -68,6 +68,7 @@ class User implements UserInterface, \Serializable
 
     public function getPassword()
     {
+        #$2a$08$jHZj/wJfcVKlIwr5AvR78euJxYK7Ku5kURNhNx.7.CSIJ3Pq6LEPC
         return $this->password;
     }
     
