@@ -1,0 +1,15 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}Loan{% endblock %}
+
+{% block body %}
+<table>
+    {{ include('AppBundle:View:loan.html.twig', { 'loan': loan }) }}
+</table>
+    
+ <form action="{{ path('login') }}" method="post">
+        <label for="investment">Investment amount:</label>
+        <input type="text" id="username" name="_investment" value="" />
+        <button type="submit">Invest</button>
+</form>
+{% endblock %}

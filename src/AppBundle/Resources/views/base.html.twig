@@ -7,9 +7,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% if app.user %}
-            <a style="float: right;" href="{{ path('logout') }}">Logout</a>
-        {% endif %}
+        <div class="navigation">
+            {% if app.user %}
+                <a  href="{{ url('homepage') }}">All loans</a>
+                <a  href="{{ url('homepage') }}">My investments</a>
+                <a style="float: right;" href="{{ path('logout') }}">Logout</a>
+            {% endif %}
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
