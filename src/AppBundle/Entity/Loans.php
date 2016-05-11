@@ -36,9 +36,11 @@ class Loans
     private $availableForInvestments;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="investments", type="array")
+     * @ORM\OneToMany(
+     *      targetEntity="Investments",
+     *      mappedBy="user",
+     *      orphanRemoval=true
+     * )
      */
     private $investments;
 
@@ -97,19 +99,6 @@ class Loans
     public function getAvailableForInvestments()
     {
         return $this->availableForInvestments;
-    }
-
-    /**
-     * Set investments
-     *
-     * @param array $investments
-     * @return Loans
-     */
-    public function setInvestments($investments)
-    {
-        $this->investments = $investments;
-
-        return $this;
     }
 
     /**
